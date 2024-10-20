@@ -30,10 +30,11 @@
     "react-router-dom": "^6.26.1",
     "react-simple-typewriter": "^5.0.1",
     "react-toastify": "^10.0.5",
+    "serve": "^14.2.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "server -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
