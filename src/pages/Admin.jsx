@@ -84,7 +84,7 @@ const Admin = () => {
         // setshoweditform(true);
         // console.log("hello", formData1.getname);
         try {
-            const response = await axios.get('http://localhost:3002/getproductsforeditordelete', {
+            const response = await axios.get('https://food-ordering-app-7pem.onrender.com/getproductsforeditordelete', {
                 params: { name: formData1.getname },
 
             });
@@ -100,7 +100,7 @@ const Admin = () => {
         // Fetch orders only once when the component mounts
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://localhost:3002/admin/orders');
+                const response = await axios.get('https://food-ordering-app-7pem.onrender.com/admin/orders');
                 setOrders(response.data);
                 console.log('Orders fetched',response.data);
             } catch (error) {
@@ -163,13 +163,13 @@ const Admin = () => {
     const handleDelete = (item) => {
         console.log('Delete Item:', item);
         setshoweditform(true);
-        axios.delete(`http://localhost:3002/delete-product/${item.id}`).then((response) => { alert(response.data); setProduct(Product.filter((product) => product.id !== item.id)) }).catch((error) => {
+        axios.delete(`https://food-ordering-app-7pem.onrender.com/delete-product/${item.id}`).then((response) => { alert(response.data); setProduct(Product.filter((product) => product.id !== item.id)) }).catch((error) => {
             console.log('error deleting product: ', error);
         })
     };
     const getProductsOfOrder = async (orderId) => {
         try {
-            const response = await axios.get(`http://localhost:3002/orders/product?orderId=${orderId}`);
+            const response = await axios.get(`https://food-ordering-app-7pem.onrender.com/orders/product?orderId=${orderId}`);
             // Store the fetched products in the `orderProducts` state using the `orderId` as the key
             setorderProducts((prevProducts) => ({
                 ...prevProducts,
@@ -188,7 +188,7 @@ const Admin = () => {
     }
     const handleEditSubmit = (e) => {
         try {
-            const response = axios.put('http://localhost:3002/updateProduct', initialvalue)
+            const response = axios.put('https://food-ordering-app-7pem.onrender.com/updateProduct', initialvalue)
             console.log(response.data);
             console.log(initialvalue);
             toast.success('Product Updated', { position: 'top-right' });
